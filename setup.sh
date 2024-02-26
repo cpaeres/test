@@ -1,12 +1,14 @@
-#!/bin/bash
+echo "Iniciando configuración del entorno..."
 
-# Configuraciones generales antes de iniciar la aplicación
-echo "Ejecutando configuraciones iniciales..."
+# Instalar dependencias de Python
+pip install -r requirements.txt
 
-# Ejemplo: Configurar la zona horaria (cambia "America/New_York" por tu zona horaria preferida)
-export TZ=America/New_York
+# Configurar Streamlit para que se ejecute correctamente en Heroku
+mkdir -p ~/.streamlit
 
-# Aquí puedes añadir otros comandos de configuración necesarios para tu aplicación
-# Por ejemplo, instalar librerías adicionales, mover archivos, etc.
-
-echo "Configuración completa."
+echo "\
+[server]\n\
+headless = true\n\
+enableCORS=false\n\
+port = $PORT\n\
+" > ~/.streamlit/config.toml
