@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run Turistv2.py
+web: streamlit run Turistv2.py
